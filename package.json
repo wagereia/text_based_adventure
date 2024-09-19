@@ -1,0 +1,13 @@
+{
+  "name": "forest-adventure-game",
+  "version": "1.0.0",
+  "description": "A terminal-based choose-your-own-adventure game",
+  "main": "game.js",
+  "scripts": {
+    "start": "node game.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": ["game", "adventure", "terminal", "choose-your-own-adventure"],
+  "author": "Adventure Game Developer",
+  "license": "MIT"
+}
