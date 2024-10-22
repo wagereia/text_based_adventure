@@ -1,57 +1,47 @@
-# Forest Adventure Game
+# Adventure Game - How to Use
 
-A simple choose-your-own-adventure game that runs in the terminal.
-
-## How to Use
-
-### Prerequisites
+## Prerequisites
 - Node.js installed on your computer
 
-### Installation & Setup
-1. Create a new folder for the game
-2. Save all the provided files in that folder
-3. Open terminal/command prompt in that folder
+## Installation & Running the Game
 
-### Running the Game
+1. **Save the files** in a new folder:
+   - `package.json`
+   - `game.js` 
+   - `gameData.js`
 
-**Start the game:**
-```bash
-node game.js
-```
+2. **Open terminal/command prompt** and navigate to the folder containing the files
 
-**Or using npm script:**
-```bash
-npm start
-```
+3. **Run the game** using:
+   ```bash
+   npm start
+   ```
+   or
+   ```bash
+   node game.js
+   ```
 
-**Start a new game (delete saved progress):**
-```bash
-npm run new-game
-```
+## How to Play
 
-### How to Play
-1. Read the story text displayed in the terminal
-2. When presented with choices, enter the number corresponding to your choice
-3. Press Enter to confirm your selection
-4. The game will automatically save your progress
-5. Continue making choices until you reach an ending
+- The game will present you with story scenes and choices
+- Read the story text carefully
+- When prompted, enter the number corresponding to your choice (1, 2, etc.)
+- Press Enter to confirm your choice
+- Your choices will lead to different story paths and endings
+- The game ends when you reach one of the multiple possible endings
 
-### Features
-- **Auto-save**: Your progress is automatically saved
-- **Multiple endings**: Discover different story outcomes
-- **Simple controls**: Just type numbers to make choices
-- **Continue where you left off**: Game loads your last position
+## Game Features
 
-### Game Files
-- `game.js` - Main game logic and interface
-- `story.json` - All story scenes and choices
-- `gameState.js` - Save/load functionality
-- `package.json` - Project configuration
+- Multiple story paths and endings
+- Simple text-based interface
+- No external dependencies required
+- Easy to modify and expand by editing `gameData.js`
 
-### Customization
-You can easily modify the story by editing `story.json`:
-- Add new scenes with unique IDs
-- Create new choices that link to different scenes
-- Write your own story branches and endings
+## Customizing the Game
 
-Enjoy your adventure in the mysterious forest! 🌲✨
+You can easily create your own adventure by modifying the `gameData.js` file:
+- Add new scenes by adding entries to the `scenes` object
+- Create new choices with different `nextScene` values
+- Write your own story text and endings
+
+Enjoy your adventure!
