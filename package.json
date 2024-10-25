@@ -6,5 +6,7 @@
   "scripts": {
     "start": "node game.js"
   },
-  "type": "module"
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
