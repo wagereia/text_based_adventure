@@ -1,18 +1,15 @@
-import readline from 'readline';
-import { gameData } from './gameData.js';
+const readline = require('readline-sync');
+const story = require('./story.json');
 
 class AdventureGame {
   constructor() {
-    this.rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
-    });
-    this.currentScene = 'start';
+    this.currentSceneId = 'start';
+    this.playerName = '';
   }
 
-  // Display current scene and prompt for choice
+  // Display current scene and choices
   displayScene() {
-    const scene = gameData.scenes[this.currentScene];
+    const scene = story.scenes[this.currentSceneId];
     
     console.log('\n' + '='.repeat(50));
     console.log(scene.text);
@@ -23,34 +20,50 @@ class AdventureGame {
       scene.choices.forEach((choice, index) => {
         console.log(`${index + 1}. ${choice.text}`);
       });
-      this.promptChoice(scene.choices);
-    } else {
-      // End of game
-      console.log('\nThanks for playing!');
-      this.rl.close();
     }
   }
 
-  // Handle user input for choices
-  promptChoice(choices) {
-    this.rl.question('\nEnter your choice (1-' + choices.length + '): ', (answer) => {
-      const choiceIndex = parseInt(answer) - 1;
+  // Get player's choice
+  getPlayerChoice() {
+    const scene = story.scenes[this.currentSceneId];
+    
+    if (!scene.choices || scene.choices.length === 0) {
+      console.log('\n🎉 The End! Thanks for playing!');
+      return false;
+    }
+
+    while (true) {
+      const input = readline.question(`\nEnter your choice (1-${scene.choices.length}): `);
+      const choiceIndex = parseInt(input) - 1;
       
-      if (choiceIndex >= 0 && choiceIndex < choices.length) {
-        this.currentScene = choices[choiceIndex].nextScene;
-        this.displayScene();
+      if (choiceIndex >= 0 && choiceIndex < scene.choices.length) {
+        this.currentSceneId = scene.choices[choiceIndex].nextScene;
+        return true;
       } else {
-        console.log('Invalid choice! Please try again.');
-        this.promptChoice(choices);
+        console.log(`Please enter a number between 1 and ${scene.choices.length}`);
       }
-    });
+    }
   }
 
-  // Start the game
-  start() {
+  // Get player's name at the start
+  getPlayerName() {
     console.log('Welcome to the Adventure Game!');
-    console.log('Make choices by entering numbers. Good luck!\n');
-    this.displayScene();
+    this.playerName = readline.question('What is your name, adventurer? ');
+    console.log(`\nHello ${this.playerName}! Let's begin your adventure...`);
+  }
+
+  // Main game loop
+  start() {
+    this.getPlayerName();
+    
+    while (this.currentSceneId !== 'end') {
+      this.displayScene();
+      if (!this.getPlayerChoice()) {
+        break;
+      }
+    }
+    
+    console.log('\nThanks for playing!');
   }
 }
 
