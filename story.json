@@ -1,89 +1,76 @@
 {
-    "scenes": {
-        "start": {
-            "text": "You wake up in a mysterious forest. The sun is setting and you need to find shelter. To your left, you see a dark cave. To your right, a narrow path leads deeper into the woods.",
-            "choices": [
-                {
-                    "text": "Enter the dark cave",
-                    "nextScene": "cave"
-                },
-                {
-                    "text": "Follow the narrow path",
-                    "nextScene": "path"
-                }
-            ]
+  "scenes": {
+    "start": {
+      "text": "You wake up in a mysterious forest. The sun is setting and you hear strange noises in the distance. You see two paths ahead of you.",
+      "choices": [
+        {
+          "text": "Take the left path towards the glowing lights",
+          "nextScene": "left_path"
         },
-        "cave": {
-            "text": "The cave is dark and damp. As your eyes adjust, you see two tunnels branching off. One has a faint glowing light, the other smells of fresh air.",
-            "choices": [
-                {
-                    "text": "Follow the glowing tunnel",
-                    "nextScene": "treasure"
-                },
-                {
-                    "text": "Take the tunnel with fresh air",
-                    "nextScene": "exit"
-                }
-            ]
-        },
-        "path": {
-            "text": "The path leads to an ancient stone bridge over a rushing river. The bridge looks unstable. You hear strange noises from the forest behind you.",
-            "choices": [
-                {
-                    "text": "Cross the unstable bridge",
-                    "nextScene": "bridge"
-                },
-                {
-                    "text": "Go back and find another way",
-                    "nextScene": "start"
-                }
-            ]
-        },
-        "treasure": {
-            "text": "You discover a hidden chamber filled with glittering treasure! A friendly dragon appears and offers to grant you one wish for being so brave.",
-            "choices": [
-                {
-                    "text": "Wish for unlimited wealth",
-                    "nextScene": "wealth_ending"
-                },
-                {
-                    "text": "Wish to return home safely",
-                    "nextScene": "home_ending"
-                }
-            ]
-        },
-        "exit": {
-            "text": "The tunnel leads you safely out of the cave system. You find yourself at the edge of a peaceful village where you're welcomed as a hero!",
-            "choices": []
-        },
-        "bridge": {
-            "text": "As you carefully cross the bridge, it suddenly collapses! You manage to grab onto a vine and swing to safety on the other side, where you discover a hidden waterfall.",
-            "choices": [
-                {
-                    "text": "Explore behind the waterfall",
-                    "nextScene": "waterfall"
-                },
-                {
-                    "text": "Follow the river downstream",
-                    "nextScene": "river"
-                }
-            ]
-        },
-        "waterfall": {
-            "text": "Behind the waterfall is a secret garden with magical plants that heal all your wounds. You decide to live here peacefully, learning the secrets of the forest.",
-            "choices": []
-        },
-        "river": {
-            "text": "Following the river, you're found by forest rangers who help you return to civilization. Your adventure becomes a legendary story told for generations.",
-            "choices": []
-        },
-        "wealth_ending": {
-            "text": "The dragon grants your wish! You become the richest person in the kingdom, using your wealth to help others and build a better world.",
-            "choices": []
-        },
-        "home_ending": {
-            "text": "In a flash of light, you're transported safely back home with amazing stories to tell. You live a happy life, always remembering your magical adventure.",
-            "choices": []
+        {
+          "text": "Take the right path towards the sound of water",
+          "nextScene": "right_path"
         }
+      ]
+    },
+    "left_path": {
+      "text": "You follow the glowing lights and discover a friendly village of forest spirits. They offer you magical berries.",
+      "choices": [
+        {
+          "text": "Accept the berries and eat them",
+          "nextScene": "magic_berries"
+        },
+        {
+          "text": "Politely decline and continue exploring",
+          "nextScene": "continue_exploring"
+        }
+      ]
+    },
+    "right_path": {
+      "text": "You follow the sound of water and find a beautiful waterfall with a hidden cave behind it. The cave entrance looks ancient.",
+      "choices": [
+        {
+          "text": "Enter the cave to explore",
+          "nextScene": "ancient_cave"
+        },
+        {
+          "text": "Stay by the waterfall and rest",
+          "nextScene": "waterfall_rest"
+        }
+      ]
+    },
+    "magic_berries": {
+      "text": "The berries give you the ability to understand animal language! You befriend the forest creatures and become the guardian of the forest.",
+      "choices": []
+    },
+    "continue_exploring": {
+      "text": "You continue through the forest and eventually find your way back home, with amazing stories to tell about your adventure.",
+      "choices": []
+    },
+    "ancient_cave": {
+      "text": "Inside the cave, you discover ancient treasure and mysterious writings on the walls. This could be a great archaeological discovery!",
+      "choices": [
+        {
+          "text": "Study the writings and become an archaeologist",
+          "nextScene": "archaeologist"
+        },
+        {
+          "text": "Take some treasure and return home wealthy",
+          "nextScene": "treasure"
+        }
+      ]
+    },
+    "waterfall_rest": {
+      "text": "While resting, you notice a hidden message carved near the waterfall that leads you to a secret garden of eternal peace.",
+      "choices": []
+    },
+    "archaeologist": {
+      "text": "Your discovery makes you famous! You spend your life uncovering ancient mysteries and become a renowned archaeologist.",
+      "choices": []
+    },
+    "treasure": {
+      "text": "You return home with incredible wealth and live a comfortable life, always remembering your amazing adventure.",
+      "choices": []
     }
+  }
 }
