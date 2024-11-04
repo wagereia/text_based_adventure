@@ -1,18 +1,31 @@
-# Adventure Game - How to Use
+# Adventure Game - README
 
-## Prerequisites
+## How to Use
+
+### Prerequisites
 - Node.js installed on your computer
+- Basic terminal/command prompt knowledge
 
-## Installation & Running the Game
+### Installation & Setup
 
-1. **Save the files** in a new folder:
+1. **Create the game folder:**
+   ```bash
+   mkdir adventure-game
+   cd adventure-game
+   ```
+
+2. **Create the files:**
+   Copy the code from above into three separate files:
    - `package.json`
-   - `game.js` 
-   - `gameData.js`
+   - `game.js`
+   - `story.json`
 
-2. **Open terminal/command prompt** and navigate to the folder containing the files
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-3. **Run the game** using:
+4. **Run the game:**
    ```bash
    npm start
    ```
@@ -21,27 +34,38 @@
    node game.js
    ```
 
-## How to Play
+### How to Play
 
-- The game will present you with story scenes and choices
-- Read the story text carefully
-- When prompted, enter the number corresponding to your choice (1, 2, etc.)
-- Press Enter to confirm your choice
-- Your choices will lead to different story paths and endings
-- The game ends when you reach one of the multiple possible endings
+1. The game will ask for your name at the beginning
+2. Read each scene description carefully
+3. Choose your path by entering the number of your choice
+4. Follow the story and see where your decisions lead you!
+5. The game ends when you reach a scene with no more choices
 
-## Game Features
+### Customizing the Game
 
-- Multiple story paths and endings
-- Simple text-based interface
-- No external dependencies required
-- Easy to modify and expand by editing `gameData.js`
+You can modify the `story.json` file to create your own adventures:
+- Add new scenes by creating new objects in the "scenes" object
+- Connect scenes using the "nextScene" property in choices
+- Each scene needs a "text" (description) and "choices" array
+- Empty choices array means it's an ending scene
 
-## Customizing the Game
+### Example of Adding a New Scene
 
-You can easily create your own adventure by modifying the `gameData.js` file:
-- Add new scenes by adding entries to the `scenes` object
-- Create new choices with different `nextScene` values
-- Write your own story text and endings
+```json
+"new_scene": {
+  "text": "Your custom scene description here",
+  "choices": [
+    {
+      "text": "Choice 1 description",
+      "nextScene": "target_scene_id"
+    },
+    {
+      "text": "Choice 2 description", 
+      "nextScene": "another_scene_id"
+    }
+  ]
+}
+```
 
-Enjoy your adventure!
+Enjoy your adventure! 🎮
